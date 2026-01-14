@@ -1,6 +1,6 @@
-package com.thecrazy8.uniquepotions;
+package com.thecrazy8.copilotmod;
 
-import com.thecrazy8.uniquepotions.effect.*;
+import com.thecrazy8.copilotmod.effect.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -11,9 +11,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Mod(UniquePotionsMod.MOD_ID)
-public class UniquePotionsMod {
-	public static final String MOD_ID = "unique_potions";
+@Mod(CopilotMod.MOD_ID)
+public class CopilotMod {
+	public static final String MOD_ID = "copilotmod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	// Register for Status Effects
@@ -50,9 +50,11 @@ public class UniquePotionsMod {
 		() -> new MiningSpeedEffect(MobEffectCategory.BENEFICIAL, 0xFFDD44));
 	public static final DeferredHolder<MobEffect, MobEffect> SOUL_FIRE = MOB_EFFECTS.register("soul_fire",
 		() -> new SoulFireEffect(MobEffectCategory.HARMFUL, 0x4444FF));
+	public static final DeferredHolder<MobEffect, MobEffect> LEVITATION = MOB_EFFECTS.register("levitation",
+		() -> new LevitationEffect(MobEffectCategory.BENEFICIAL, 0xCCFFFF));
 
-	public UniquePotionsMod(IEventBus modEventBus) {
-		LOGGER.info("Initializing Unique Potions Mod");
+	public CopilotMod(IEventBus modEventBus) {
+		LOGGER.info("Initializing Copilot Mod");
 
 		// Register Status Effects
 		MOB_EFFECTS.register(modEventBus);
@@ -60,6 +62,15 @@ public class UniquePotionsMod {
 		// Register Potions
 		ModPotions.POTIONS.register(modEventBus);
 
-		LOGGER.info("Unique Potions Mod initialized successfully");
+		// Register Blocks
+		ModBlocks.BLOCKS.register(modEventBus);
+
+		// Register Items
+		ModItems.ITEMS.register(modEventBus);
+
+		// Register Creative Mode Tabs
+		ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+
+		LOGGER.info("Copilot Mod initialized successfully");
 	}
 }

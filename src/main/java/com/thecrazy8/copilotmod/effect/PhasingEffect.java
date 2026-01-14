@@ -1,4 +1,4 @@
-package com.thecrazy8.uniquepotions.effect;
+package com.thecrazy8.copilotmod.effect;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;

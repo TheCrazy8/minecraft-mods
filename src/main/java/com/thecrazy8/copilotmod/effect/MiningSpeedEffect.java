@@ -1,19 +1,20 @@
-package com.thecrazy8.uniquepotions.effect;
+package com.thecrazy8.copilotmod.effect;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 
-public class ExplosionResistanceEffect extends MobEffect {
-	public ExplosionResistanceEffect(MobEffectCategory category, int color) {
+public class MiningSpeedEffect extends MobEffect {
+	public MiningSpeedEffect(MobEffectCategory category, int color) {
 		super(category, color);
 	}
 
 	@Override
 	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
-		// The actual explosion resistance would be handled via damage reduction in a mixin
-		// This is a placeholder for the effect tick
+		// Mining speed boost is typically handled in breaking speed events
+		// This provides the effect framework
 		return true;
 	}
 

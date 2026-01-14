@@ -1,4 +1,4 @@
-package com.thecrazy8.uniquepotions.effect;
+package com.thecrazy8.copilotmod.effect;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -22,6 +22,6 @@ public class BerserkEffect extends MobEffect {
 
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-		return true;
+		return false; // Attributes handle the effect automatically
 	}
 }

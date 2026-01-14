@@ -1,10 +1,12 @@
-# Unique Potions Mod
+# Copilot Mod
 
-A Minecraft NeoForge mod that adds a bunch of unique potion effects and potions to enhance gameplay.
+A Minecraft NeoForge mod that adds unique potion effects, custom blocks, and special items to enhance gameplay.
 
 ## Features
 
-This mod adds **14 new unique potion effects** and their corresponding potions:
+### Potion Effects
+
+This mod adds **15 unique potion effects** and their corresponding potions:
 
 ### Original Potion Effects
 
@@ -52,11 +54,40 @@ This mod adds **14 new unique potion effects** and their corresponding potions:
 14. **Soul Fire** - Deals soul fire damage over time
     - Available in: Normal, Long, Strong variants
 
+15. **Levitation** - Makes you float upward continuously like a helium balloon
+    - Available in: Normal, Long, Strong variants
+
+### Custom Blocks
+
+1. **Enchanted Crystal Block** - A decorative glowing block that emits maximum light (15)
+   - Crafted with glass, amethyst shards, and glowstone dust
+   - Has a glass-like sound and requires a proper tool to mine
+
+### Custom Items
+
+1. **Lucky Coin** - A consumable item that grants random beneficial effects
+   - Stackable up to 16
+   - Grants one of 10 different beneficial effects when used:
+     - Regeneration II (20 seconds)
+     - Resistance (60 seconds)  
+     - Fire Resistance (60 seconds)
+     - Speed II (60 seconds)
+     - Haste II (60 seconds)
+     - Strength II (30 seconds)
+     - Luck III (120 seconds)
+     - Absorption II (60 seconds)
+     - Jump Boost III (60 seconds)
+     - Night Vision (60 seconds)
+   - Crafted with gold nuggets and a diamond
+
 ## Total Content
 
-- **14 unique potion effects**
-- **41 potion variants** (including normal, long, and strong versions)
+- **15 unique potion effects**
+- **44 potion variants** (including normal, long, and strong versions)
 - Each potion also has **splash** and **lingering** variants automatically
+- **1 custom block** (Enchanted Crystal Block)
+- **1 custom item** (Lucky Coin)
+- **Custom creative mode tab** for easy access to all items
 
 ## Building
 
@@ -101,23 +132,30 @@ The compiled mod jar will be in `build/libs/`.
 
 ## Usage
 
+### Commands
+
 Potions can be obtained through creative mode or by using commands:
 ```
-/effect give @p unique_potions:freezing
-/effect give @p unique_potions:phasing
-/effect give @p unique_potions:berserk
-/effect give @p unique_potions:magnetic
-/effect give @p unique_potions:lightweight
-/effect give @p unique_potions:recall
-/effect give @p unique_potions:vampiric
-/effect give @p unique_potions:decay
-/effect give @p unique_potions:gravity
-/effect give @p unique_potions:explosion_resistance
-/effect give @p unique_potions:reach
-/effect give @p unique_potions:thorns
-/effect give @p unique_potions:mining_speed
-/effect give @p unique_potions:soul_fire
+/effect give @p copilotmod:freezing
+/effect give @p copilotmod:phasing
+/effect give @p copilotmod:berserk
+/effect give @p copilotmod:magnetic
+/effect give @p copilotmod:lightweight
+/effect give @p copilotmod:recall
+/effect give @p copilotmod:vampiric
+/effect give @p copilotmod:decay
+/effect give @p copilotmod:gravity
+/effect give @p copilotmod:explosion_resistance
+/effect give @p copilotmod:reach
+/effect give @p copilotmod:thorns
+/effect give @p copilotmod:mining_speed
+/effect give @p copilotmod:soul_fire
+/effect give @p copilotmod:levitation
 ```
+
+### Creative Mode
+
+All custom blocks and items can be found in the "Copilot Mod" creative tab.
 
 ## License
 

@@ -1,4 +1,4 @@
-package com.thecrazy8.uniquepotions.effect;
+package com.thecrazy8.copilotmod.effect;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -38,6 +38,6 @@ public class RecallEffect extends MobEffect {
 
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-		return true;
+		return false; // No per-tick operations needed
 	}
 }
