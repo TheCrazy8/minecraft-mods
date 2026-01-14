@@ -22,6 +22,6 @@ public class BerserkEffect extends MobEffect {
 
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-		return true;
+		return false; // Attributes handle the effect automatically
 	}
 }

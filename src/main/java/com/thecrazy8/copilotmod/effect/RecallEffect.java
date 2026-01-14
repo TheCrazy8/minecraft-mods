@@ -38,6 +38,6 @@ public class RecallEffect extends MobEffect {
 
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-		return true;
+		return false; // No per-tick operations needed
 	}
 }

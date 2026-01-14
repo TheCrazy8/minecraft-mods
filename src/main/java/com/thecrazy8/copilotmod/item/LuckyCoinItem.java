@@ -9,11 +9,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class LuckyCoinItem extends Item {
-	private static final Random RANDOM = new Random();
-
 	public LuckyCoinItem(Properties properties) {
 		super(properties);
 	}
@@ -51,6 +49,6 @@ public class LuckyCoinItem extends Item {
 			new MobEffectInstance(MobEffects.NIGHT_VISION, 1200, 0) // 60 seconds
 		};
 
-		return effects[RANDOM.nextInt(effects.length)];
+		return effects[ThreadLocalRandom.current().nextInt(effects.length)];
 	}
 }
