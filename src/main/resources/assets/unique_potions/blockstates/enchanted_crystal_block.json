@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unique_potions:block/enchanted_crystal_block"
+    }
+  }
+}

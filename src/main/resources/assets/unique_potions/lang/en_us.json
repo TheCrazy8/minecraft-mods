@@ -16,6 +16,12 @@
 
   "effect.unique_potions.levitation": "Levitation",
 
+  "block.unique_potions.enchanted_crystal_block": "Enchanted Crystal Block",
+  
+  "item.unique_potions.lucky_coin": "Lucky Coin",
+
+  "itemGroup.unique_potions": "Unique Potions",
+
   "effect.unique_potions.freezing.description": "Slows your movement by 50% and deals freeze damage every 2 seconds",
   "effect.unique_potions.phasing.description": "Allows you to pass through blocks like a ghost. Beware of falling into the void!",
   "effect.unique_potions.berserk.description": "Increases attack damage by 4, attack speed by 50%, and movement speed by 15%",

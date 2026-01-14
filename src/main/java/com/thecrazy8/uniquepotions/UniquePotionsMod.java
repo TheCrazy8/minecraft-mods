@@ -62,6 +62,15 @@ public class UniquePotionsMod {
 		// Register Potions
 		ModPotions.POTIONS.register(modEventBus);
 
+		// Register Blocks
+		ModBlocks.BLOCKS.register(modEventBus);
+
+		// Register Items
+		ModItems.ITEMS.register(modEventBus);
+
+		// Register Creative Mode Tabs
+		ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+
 		LOGGER.info("Unique Potions Mod initialized successfully");
 	}
 }
