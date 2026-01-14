@@ -68,22 +68,23 @@
 
 All effects can be applied using commands:
 ```
-/effect give @p unique-potions:freezing <duration> <amplifier>
-/effect give @p unique-potions:phasing <duration> <amplifier>
-/effect give @p unique-potions:berserk <duration> <amplifier>
-/effect give @p unique-potions:magnetic <duration> <amplifier>
-/effect give @p unique-potions:lightweight <duration> <amplifier>
-/effect give @p unique-potions:recall <duration> <amplifier>
-/effect give @p unique-potions:vampiric <duration> <amplifier>
-/effect give @p unique-potions:decay <duration> <amplifier>
+/effect give @p unique_potions:freezing <duration> <amplifier>
+/effect give @p unique_potions:phasing <duration> <amplifier>
+/effect give @p unique_potions:berserk <duration> <amplifier>
+/effect give @p unique_potions:magnetic <duration> <amplifier>
+/effect give @p unique_potions:lightweight <duration> <amplifier>
+/effect give @p unique_potions:recall <duration> <amplifier>
+/effect give @p unique_potions:vampiric <duration> <amplifier>
+/effect give @p unique_potions:decay <duration> <amplifier>
 ```
 
 Potions are also registered and can be obtained in creative mode or through brewing (if brewing recipes are added).
 
 ## Technical Notes
 
-- All effects are properly registered in the Minecraft registry
+- All effects are properly registered in the Minecraft registry using NeoForge's DeferredRegister system
 - Each effect has proper color coding for visual identification
 - Effects support amplifier levels for increased potency
 - Language files provide proper localization for English
 - Potions support splash and lingering variants automatically through Minecraft's potion system
+- Built for Minecraft 1.21.1 with NeoForge 21.1.72+
