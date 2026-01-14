@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "copilotmod:block/enchanted_crystal_block"
+  }
+}
