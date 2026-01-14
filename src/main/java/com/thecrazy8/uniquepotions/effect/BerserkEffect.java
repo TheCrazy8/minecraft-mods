@@ -1,27 +1,27 @@
 package com.thecrazy8.uniquepotions.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 
-public class BerserkEffect extends StatusEffect {
-	public BerserkEffect(StatusEffectCategory category, int color) {
+public class BerserkEffect extends MobEffect {
+	public BerserkEffect(MobEffectCategory category, int color) {
 		super(category, color);
-		this.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, "648d7064-6a60-4f59-8abe-c2c23a6dd7a9", 4.0, EntityAttributeModifier.Operation.ADDITION);
-		this.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED, "55fced67-e92a-486e-9800-b47f202c4386", 0.5, EntityAttributeModifier.Operation.ADDITION);
-		this.addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, "91AEAA56-376B-4498-935B-2F7F68070635", 0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
+		this.addAttributeModifier(Attributes.ATTACK_DAMAGE, "648d7064-6a60-4f59-8abe-c2c23a6dd7a9", 4.0, AttributeModifier.Operation.ADD_VALUE);
+		this.addAttributeModifier(Attributes.ATTACK_SPEED, "55fced67-e92a-486e-9800-b47f202c4386", 0.5, AttributeModifier.Operation.ADD_VALUE);
+		this.addAttributeModifier(Attributes.MOVEMENT_SPEED, "91AEAA56-376B-4498-935B-2F7F68070635", 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
 		// Additional berserk logic could be added here
+		return true;
 	}
 
 	@Override
-	public boolean canApplyUpdateEffect(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 }

@@ -1,28 +1,29 @@
 package com.thecrazy8.uniquepotions.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 
-public class LightweightEffect extends StatusEffect {
-	public LightweightEffect(StatusEffectCategory category, int color) {
+public class LightweightEffect extends MobEffect {
+	public LightweightEffect(MobEffectCategory category, int color) {
 		super(category, color);
 		// Increase movement speed
-		this.addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890", 0.25, EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
+		this.addAttributeModifier(Attributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890", 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
 		// Reduce fall damage by negating some velocity
-		if (!entity.isOnGround() && entity.getVelocity().y < 0) {
-			entity.setVelocity(entity.getVelocity().x, entity.getVelocity().y * 0.9, entity.getVelocity().z);
+		if (!entity.onGround() && entity.getDeltaMovement().y < 0) {
+			entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0, 0.9, 1.0));
 		}
+		return true;
 	}
 
 	@Override
-	public boolean canApplyUpdateEffect(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 }

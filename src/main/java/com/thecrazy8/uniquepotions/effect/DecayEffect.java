@@ -1,24 +1,25 @@
 package com.thecrazy8.uniquepotions.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
 
-public class DecayEffect extends StatusEffect {
-	public DecayEffect(StatusEffectCategory category, int color) {
+public class DecayEffect extends MobEffect {
+	public DecayEffect(MobEffectCategory category, int color) {
 		super(category, color);
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
 		// Gradually reduces max health and deals damage over time
-		if (entity.age % 40 == 0) {
-			entity.damage(entity.getDamageSources().magic(), 1.5f * (amplifier + 1));
+		if (entity.tickCount % 40 == 0) {
+			entity.hurt(entity.damageSources().magic(), 1.5f * (amplifier + 1));
 		}
+		return true;
 	}
 
 	@Override
-	public boolean canApplyUpdateEffect(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 }

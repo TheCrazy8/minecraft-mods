@@ -1,33 +1,41 @@
 package com.thecrazy8.uniquepotions.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
-public class PhasingEffect extends StatusEffect {
-	public PhasingEffect(StatusEffectCategory category, int color) {
+public class PhasingEffect extends MobEffect {
+	public PhasingEffect(MobEffectCategory category, int color) {
 		super(category, color);
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-		if (entity instanceof PlayerEntity player) {
+	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
+		if (entity instanceof Player player) {
 			// Enable noclip-like behavior by allowing movement through blocks
 			// This is simplified - in a full implementation would use mixins
-			player.noClip = true;
+			player.noPhysics = true;
+		}
+		return true;
+	}
+
+	@Override
+	public void onEffectStarted(LivingEntity entity, int amplifier) {
+		if (entity instanceof Player player) {
+			player.noPhysics = true;
 		}
 	}
 
 	@Override
-	public void onRemoved(LivingEntity entity) {
-		if (entity instanceof PlayerEntity player) {
-			player.noClip = false;
+	public void onMobRemoved(LivingEntity entity, int amplifier, net.minecraft.world.effect.MobEffectInstance.OnRemovalReason reason) {
+		if (entity instanceof Player player) {
+			player.noPhysics = false;
 		}
 	}
 
 	@Override
-	public boolean canApplyUpdateEffect(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 }

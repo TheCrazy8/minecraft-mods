@@ -1,39 +1,39 @@
 package com.thecrazy8.uniquepotions.effect;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-public class MagneticEffect extends StatusEffect {
-	public MagneticEffect(StatusEffectCategory category, int color) {
+public class MagneticEffect extends MobEffect {
+	public MagneticEffect(MobEffectCategory category, int color) {
 		super(category, color);
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
 		// Pull nearby items towards the entity
 		double range = 5.0 + (amplifier * 2.0);
-		Box box = new Box(
+		AABB box = new AABB(
 			entity.getX() - range, entity.getY() - range, entity.getZ() - range,
 			entity.getX() + range, entity.getY() + range, entity.getZ() + range
 		);
 
-		List<ItemEntity> items = entity.getWorld().getEntitiesByClass(ItemEntity.class, box, item -> true);
+		List<ItemEntity> items = entity.level().getEntitiesOfClass(ItemEntity.class, box);
 		
 		for (ItemEntity item : items) {
-			Vec3d direction = entity.getPos().subtract(item.getPos()).normalize();
-			item.addVelocity(direction.x * 0.1, direction.y * 0.1, direction.z * 0.1);
+			Vec3 direction = entity.position().subtract(item.position()).normalize();
+			item.setDeltaMovement(item.getDeltaMovement().add(direction.scale(0.1)));
 		}
+		return true;
 	}
 
 	@Override
-	public boolean canApplyUpdateEffect(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 }

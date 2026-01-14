@@ -1,6 +1,6 @@
 # Unique Potions Mod
 
-A Minecraft Fabric mod that adds a bunch of unique potion effects and potions to enhance gameplay.
+A Minecraft NeoForge mod that adds a bunch of unique potion effects and potions to enhance gameplay.
 
 ## Features
 
@@ -35,34 +35,35 @@ This mod adds 8 new unique potion effects and their corresponding potions:
 ## Building
 
 This mod requires:
-- Minecraft 1.20.4
-- Fabric Loader 0.15.3+
-- Fabric API 0.91.2+1.20.4
+- Minecraft 1.21.1
+- NeoForge 21.1.72+
+- Java 21
 
 To build:
 ```bash
 ./gradlew build
 ```
 
+The compiled mod jar will be in `build/libs/`.
+
 ## Installation
 
-1. Install Fabric Loader for Minecraft 1.20.4
-2. Download Fabric API
-3. Place this mod jar and Fabric API in your mods folder
-4. Launch Minecraft with the Fabric profile
+1. Install NeoForge for Minecraft 1.21.1
+2. Place this mod jar in your mods folder
+3. Launch Minecraft with the NeoForge profile
 
 ## Usage
 
 Potions can be obtained through creative mode or by using commands:
 ```
-/effect give @p unique-potions:freezing
-/effect give @p unique-potions:phasing
-/effect give @p unique-potions:berserk
-/effect give @p unique-potions:magnetic
-/effect give @p unique-potions:lightweight
-/effect give @p unique-potions:recall
-/effect give @p unique-potions:vampiric
-/effect give @p unique-potions:decay
+/effect give @p unique_potions:freezing
+/effect give @p unique_potions:phasing
+/effect give @p unique_potions:berserk
+/effect give @p unique_potions:magnetic
+/effect give @p unique_potions:lightweight
+/effect give @p unique_potions:recall
+/effect give @p unique_potions:vampiric
+/effect give @p unique_potions:decay
 ```
 
 ## License

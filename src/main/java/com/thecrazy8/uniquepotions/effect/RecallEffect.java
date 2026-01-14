@@ -1,39 +1,40 @@
 package com.thecrazy8.uniquepotions.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
-public class RecallEffect extends StatusEffect {
-	public RecallEffect(StatusEffectCategory category, int color) {
+public class RecallEffect extends MobEffect {
+	public RecallEffect(MobEffectCategory category, int color) {
 		super(category, color);
 	}
 
 	@Override
-	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
 		// This effect teleports the player back to spawn when it expires
-		// The actual teleport happens in onRemoved
+		// The actual teleport happens in onMobRemoved
+		return true;
 	}
 
 	@Override
-	public void onRemoved(LivingEntity entity) {
-		if (entity instanceof PlayerEntity player && entity.getWorld() instanceof ServerWorld serverWorld) {
+	public void onMobRemoved(LivingEntity entity, int amplifier, net.minecraft.world.effect.MobEffectInstance.OnRemovalReason reason) {
+		if (entity instanceof Player player && entity.level() instanceof ServerLevel serverLevel) {
 			// Teleport to spawn point
-			BlockPos spawnPos = player.getSpawnPointPosition();
+			BlockPos spawnPos = player.getRespawnPosition();
 			if (spawnPos != null) {
-				player.teleport(serverWorld, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, player.getYaw(), player.getPitch());
+				player.teleportTo(serverLevel, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, player.getYRot(), player.getXRot());
 			} else {
-				BlockPos worldSpawn = serverWorld.getSpawnPos();
-				player.teleport(serverWorld, worldSpawn.getX() + 0.5, worldSpawn.getY(), worldSpawn.getZ() + 0.5, player.getYaw(), player.getPitch());
+				BlockPos worldSpawn = serverLevel.getSharedSpawnPos();
+				player.teleportTo(serverLevel, worldSpawn.getX() + 0.5, worldSpawn.getY(), worldSpawn.getZ() + 0.5, player.getYRot(), player.getXRot());
 			}
 		}
 	}
 
 	@Override
-	public boolean canApplyUpdateEffect(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 }
