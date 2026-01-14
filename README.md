@@ -65,7 +65,28 @@ This mod requires:
 - NeoForge 21.1.72+
 - Java 21
 
-To build:
+### Easy Build (Recommended)
+
+Use the provided build scripts:
+
+**On Linux/Mac:**
+```bash
+./build.sh
+```
+
+**On Windows:**
+```batch
+build.bat
+```
+
+These scripts will:
+1. Clean previous builds
+2. Build the mod jar
+3. Show you where the output jar is located
+
+### Manual Build
+
+Alternatively, you can build manually:
 ```bash
 ./gradlew build
 ```
