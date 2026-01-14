@@ -21,14 +21,17 @@ public class RecallEffect extends MobEffect {
 
 	@Override
 	public void onMobRemoved(LivingEntity entity, int amplifier, net.minecraft.world.effect.MobEffectInstance.OnRemovalReason reason) {
-		if (entity instanceof Player player && entity.level() instanceof ServerLevel serverLevel) {
-			// Teleport to spawn point
-			BlockPos spawnPos = player.getRespawnPosition();
-			if (spawnPos != null) {
-				player.teleportTo(serverLevel, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, player.getYRot(), player.getXRot());
-			} else {
-				BlockPos worldSpawn = serverLevel.getSharedSpawnPos();
-				player.teleportTo(serverLevel, worldSpawn.getX() + 0.5, worldSpawn.getY(), worldSpawn.getZ() + 0.5, player.getYRot(), player.getXRot());
+		// Only teleport if effect expired naturally, not if removed by commands/milk
+		if (reason == net.minecraft.world.effect.MobEffectInstance.OnRemovalReason.EXPIRED) {
+			if (entity instanceof Player player && entity.level() instanceof ServerLevel serverLevel) {
+				// Teleport to spawn point
+				BlockPos spawnPos = player.getRespawnPosition();
+				if (spawnPos != null) {
+					player.teleportTo(serverLevel, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, player.getYRot(), player.getXRot());
+				} else {
+					BlockPos worldSpawn = serverLevel.getSharedSpawnPos();
+					player.teleportTo(serverLevel, worldSpawn.getX() + 0.5, worldSpawn.getY(), worldSpawn.getZ() + 0.5, player.getYRot(), player.getXRot());
+				}
 			}
 		}
 	}

@@ -1,29 +1,24 @@
 package com.thecrazy8.uniquepotions.effect;
 
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 
-public class VampiricEffect extends MobEffect {
-	public VampiricEffect(MobEffectCategory category, int color) {
+public class ExplosionResistanceEffect extends MobEffect {
+	public ExplosionResistanceEffect(MobEffectCategory category, int color) {
 		super(category, color);
 	}
 
 	@Override
 	public boolean applyEffectTick(LivingEntity entity, int amplifier) {
-		// Provide slow regeneration
-		if (entity instanceof Player player) {
-			if (player.getHealth() < player.getMaxHealth()) {
-				player.heal(1.0f * (amplifier + 1));
-			}
-		}
+		// The actual explosion resistance would be handled via damage reduction in a mixin
+		// This is a placeholder for the effect tick
 		return true;
 	}
 
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-		// Heal every 4 seconds (80 ticks)
-		return duration % 80 == 0;
+		return false; // No periodic ticking needed
 	}
 }

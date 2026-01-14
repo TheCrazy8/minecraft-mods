@@ -21,7 +21,7 @@ public class PhasingEffect extends MobEffect {
 	}
 
 	@Override
-	public void onEffectStarted(LivingEntity entity, int amplifier) {
+	public void onEffectAdded(LivingEntity entity, int amplifier) {
 		if (entity instanceof Player player) {
 			player.noPhysics = true;
 		}
@@ -31,6 +31,10 @@ public class PhasingEffect extends MobEffect {
 	public void onMobRemoved(LivingEntity entity, int amplifier, net.minecraft.world.effect.MobEffectInstance.OnRemovalReason reason) {
 		if (entity instanceof Player player) {
 			player.noPhysics = false;
+			// Safety check: if player is below Y=0 (void), teleport them to safety
+			if (player.getY() < player.level().getMinBuildHeight()) {
+				player.teleportTo(player.getX(), player.level().getMinBuildHeight() + 10, player.getZ());
+			}
 		}
 	}
 

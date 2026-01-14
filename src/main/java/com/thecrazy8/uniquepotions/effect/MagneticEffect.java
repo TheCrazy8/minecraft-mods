@@ -26,8 +26,13 @@ public class MagneticEffect extends MobEffect {
 		List<ItemEntity> items = entity.level().getEntitiesOfClass(ItemEntity.class, box);
 		
 		for (ItemEntity item : items) {
-			Vec3 direction = entity.position().subtract(item.position()).normalize();
-			item.setDeltaMovement(item.getDeltaMovement().add(direction.scale(0.1)));
+			Vec3 toEntity = entity.position().subtract(item.position());
+			double distance = toEntity.length();
+			// Only pull if not too close to avoid division by zero
+			if (distance > 0.5) {
+				Vec3 direction = toEntity.normalize();
+				item.setDeltaMovement(item.getDeltaMovement().add(direction.scale(0.1)));
+			}
 		}
 		return true;
 	}

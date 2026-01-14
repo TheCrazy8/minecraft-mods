@@ -19,7 +19,7 @@ public class UniquePotionsMod {
 	// Register for Status Effects
 	public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, MOD_ID);
 
-	// Custom Status Effects
+	// Original Custom Status Effects
 	public static final DeferredHolder<MobEffect, MobEffect> FREEZING = MOB_EFFECTS.register("freezing", 
 		() -> new FreezingEffect(MobEffectCategory.HARMFUL, 0x7CB8E8));
 	public static final DeferredHolder<MobEffect, MobEffect> PHASING = MOB_EFFECTS.register("phasing",
@@ -36,6 +36,20 @@ public class UniquePotionsMod {
 		() -> new VampiricEffect(MobEffectCategory.BENEFICIAL, 0xCC0000));
 	public static final DeferredHolder<MobEffect, MobEffect> DECAY = MOB_EFFECTS.register("decay",
 		() -> new DecayEffect(MobEffectCategory.HARMFUL, 0x4A4A4A));
+
+	// New Custom Status Effects
+	public static final DeferredHolder<MobEffect, MobEffect> GRAVITY = MOB_EFFECTS.register("gravity",
+		() -> new GravityEffect(MobEffectCategory.BENEFICIAL, 0xDDDDFF));
+	public static final DeferredHolder<MobEffect, MobEffect> EXPLOSION_RESISTANCE = MOB_EFFECTS.register("explosion_resistance",
+		() -> new ExplosionResistanceEffect(MobEffectCategory.BENEFICIAL, 0xFF8800));
+	public static final DeferredHolder<MobEffect, MobEffect> REACH = MOB_EFFECTS.register("reach",
+		() -> new ReachEffect(MobEffectCategory.BENEFICIAL, 0x88FFFF));
+	public static final DeferredHolder<MobEffect, MobEffect> THORNS = MOB_EFFECTS.register("thorns",
+		() -> new ThornsEffect(MobEffectCategory.BENEFICIAL, 0x44FF44));
+	public static final DeferredHolder<MobEffect, MobEffect> MINING_SPEED = MOB_EFFECTS.register("mining_speed",
+		() -> new MiningSpeedEffect(MobEffectCategory.BENEFICIAL, 0xFFDD44));
+	public static final DeferredHolder<MobEffect, MobEffect> SOUL_FIRE = MOB_EFFECTS.register("soul_fire",
+		() -> new SoulFireEffect(MobEffectCategory.HARMFUL, 0x4444FF));
 
 	public UniquePotionsMod(IEventBus modEventBus) {
 		LOGGER.info("Initializing Unique Potions Mod");
