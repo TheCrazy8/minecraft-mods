@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "unique-potions",
+	"version": "${version}",
+	"name": "Unique Potions",
+	"description": "Adds a bunch of unique potion effects and potions to Minecraft",
+	"authors": [
+		"TheCrazy8"
+	],
+	"contact": {
+		"sources": "https://github.com/TheCrazy8/minecraft-mods"
+	},
+	"license": "MIT",
+	"icon": "assets/unique-potions/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.thecrazy8.uniquepotions.UniquePotionsMod"
+		]
+	},
+	"mixins": [
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
