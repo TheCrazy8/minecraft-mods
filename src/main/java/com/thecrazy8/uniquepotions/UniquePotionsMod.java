@@ -50,6 +50,8 @@ public class UniquePotionsMod {
 		() -> new MiningSpeedEffect(MobEffectCategory.BENEFICIAL, 0xFFDD44));
 	public static final DeferredHolder<MobEffect, MobEffect> SOUL_FIRE = MOB_EFFECTS.register("soul_fire",
 		() -> new SoulFireEffect(MobEffectCategory.HARMFUL, 0x4444FF));
+	public static final DeferredHolder<MobEffect, MobEffect> LEVITATION = MOB_EFFECTS.register("levitation",
+		() -> new LevitationEffect(MobEffectCategory.BENEFICIAL, 0xCCFFFF));
 
 	public UniquePotionsMod(IEventBus modEventBus) {
 		LOGGER.info("Initializing Unique Potions Mod");

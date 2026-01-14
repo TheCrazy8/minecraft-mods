@@ -111,4 +111,12 @@ public class ModPotions {
 		() -> new Potion(new MobEffectInstance(UniquePotionsMod.SOUL_FIRE, 3600, 0)));
 	public static final DeferredHolder<Potion, Potion> STRONG_SOUL_FIRE_POTION = POTIONS.register("strong_soul_fire",
 		() -> new Potion(new MobEffectInstance(UniquePotionsMod.SOUL_FIRE, 900, 1)));
+
+	// Levitation
+	public static final DeferredHolder<Potion, Potion> LEVITATION_POTION = POTIONS.register("levitation",
+		() -> new Potion(new MobEffectInstance(UniquePotionsMod.LEVITATION, 1200, 0)));
+	public static final DeferredHolder<Potion, Potion> LONG_LEVITATION_POTION = POTIONS.register("long_levitation",
+		() -> new Potion(new MobEffectInstance(UniquePotionsMod.LEVITATION, 2400, 0)));
+	public static final DeferredHolder<Potion, Potion> STRONG_LEVITATION_POTION = POTIONS.register("strong_levitation",
+		() -> new Potion(new MobEffectInstance(UniquePotionsMod.LEVITATION, 600, 1)));
 }

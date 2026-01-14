@@ -14,6 +14,8 @@
   "effect.unique_potions.mining_speed": "Mining Speed",
   "effect.unique_potions.soul_fire": "Soul Fire",
 
+  "effect.unique_potions.levitation": "Levitation",
+
   "effect.unique_potions.freezing.description": "Slows your movement by 50% and deals freeze damage every 2 seconds",
   "effect.unique_potions.phasing.description": "Allows you to pass through blocks like a ghost. Beware of falling into the void!",
   "effect.unique_potions.berserk.description": "Increases attack damage by 4, attack speed by 50%, and movement speed by 15%",
@@ -28,6 +30,8 @@
   "effect.unique_potions.thorns.description": "Increases armor by 4 and reflects damage back to attackers",
   "effect.unique_potions.mining_speed.description": "Significantly increases your block breaking speed",
   "effect.unique_potions.soul_fire.description": "Burns you with soul fire, dealing 2 damage every second",
+
+  "effect.unique_potions.levitation.description": "Makes you float upward continuously like a helium balloon",
 
   "item.minecraft.potion.effect.freezing": "Potion of Freezing",
   "item.minecraft.potion.effect.long_freezing": "Potion of Freezing",
@@ -152,5 +156,15 @@
   "item.minecraft.splash_potion.effect.strong_soul_fire": "Splash Potion of Soul Fire",
   "item.minecraft.lingering_potion.effect.soul_fire": "Lingering Potion of Soul Fire",
   "item.minecraft.lingering_potion.effect.long_soul_fire": "Lingering Potion of Soul Fire",
-  "item.minecraft.lingering_potion.effect.strong_soul_fire": "Lingering Potion of Soul Fire"
+  "item.minecraft.lingering_potion.effect.strong_soul_fire": "Lingering Potion of Soul Fire",
+
+  "item.minecraft.potion.effect.levitation": "Potion of Levitation",
+  "item.minecraft.potion.effect.long_levitation": "Potion of Levitation",
+  "item.minecraft.potion.effect.strong_levitation": "Potion of Levitation",
+  "item.minecraft.splash_potion.effect.levitation": "Splash Potion of Levitation",
+  "item.minecraft.splash_potion.effect.long_levitation": "Splash Potion of Levitation",
+  "item.minecraft.splash_potion.effect.strong_levitation": "Splash Potion of Levitation",
+  "item.minecraft.lingering_potion.effect.levitation": "Lingering Potion of Levitation",
+  "item.minecraft.lingering_potion.effect.long_levitation": "Lingering Potion of Levitation",
+  "item.minecraft.lingering_potion.effect.strong_levitation": "Lingering Potion of Levitation"
 }
