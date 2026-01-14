@@ -1,4 +1,4 @@
-package com.thecrazy8.uniquepotions;
+package com.thecrazy8.copilotmod;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModBlocks {
 	// Register for Blocks
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BuiltInRegistries.BLOCK, UniquePotionsMod.MOD_ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BuiltInRegistries.BLOCK, CopilotMod.MOD_ID);
 
 	// Enchanted Crystal Block - A decorative glowing block
 	public static final DeferredHolder<Block, Block> ENCHANTED_CRYSTAL_BLOCK = BLOCKS.register("enchanted_crystal_block",

@@ -1,4 +1,4 @@
-package com.thecrazy8.uniquepotions.effect;
+package com.thecrazy8.copilotmod.effect;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

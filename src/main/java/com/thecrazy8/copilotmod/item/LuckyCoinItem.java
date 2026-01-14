@@ -1,4 +1,4 @@
-package com.thecrazy8.uniquepotions.item;
+package com.thecrazy8.copilotmod.item;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

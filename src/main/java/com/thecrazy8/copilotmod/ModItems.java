@@ -1,6 +1,6 @@
-package com.thecrazy8.uniquepotions;
+package com.thecrazy8.copilotmod;
 
-import com.thecrazy8.uniquepotions.item.LuckyCoinItem;
+import com.thecrazy8.copilotmod.item.LuckyCoinItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
 	// Register for Items
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, UniquePotionsMod.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, CopilotMod.MOD_ID);
 
 	// Block Items
 	public static final DeferredHolder<Item, Item> ENCHANTED_CRYSTAL_BLOCK_ITEM = ITEMS.register("enchanted_crystal_block",
